@@ -27,31 +27,16 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('כלים למשפחה.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #333;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #5a8fb5 0%, #85c4e8 100%);
+            min-height: 100vh;
+            color: white;
         }
 
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
             padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            padding: 0.5rem 2rem;
-            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
         }
 
         nav {
@@ -72,19 +57,12 @@
         .nav-logo img {
             width: 50px;
             height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-logo:hover img {
-            transform: scale(1.1) rotate(5deg);
         }
 
         .nav-title {
             font-size: 1.3rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #5a8fb5 0%, #667eea 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #5a8fb5;
         }
 
         .nav-links {
@@ -97,27 +75,11 @@
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #5a8fb5 0%, #667eea 100%);
-            transition: width 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #5a8fb5;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         .menu-toggle {
@@ -131,319 +93,91 @@
             width: 25px;
             height: 3px;
             background: #333;
-            transition: all 0.3s ease;
             border-radius: 2px;
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 2rem;
-            position: relative;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveGrid 20s linear infinite;
-        }
-
-        @keyframes moveGrid {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            max-width: 800px;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo-container {
-            margin-bottom: 1.5rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .logo {
-            width: 150px;
-            height: 150px;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
         h1 {
-            font-size: 2.8rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-            animation: slideIn 0.8s ease;
-        }
-
-        .subtitle {
-            font-size: 1.8rem;
-            color: #5a8fb5;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .featured-project {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border: 2px solid #5a8fb5;
-        }
-
-        .featured-project h3 {
-            font-size: 1.2rem;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-            margin: 0.5rem 0;
-        }
-
-        .project-name-en {
-            font-size: 1.2rem;
-            color: #5a8fb5;
-            margin-bottom: 1rem;
-        }
-
-        .project-button {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            background: linear-gradient(135deg, #88b850 0%, #6a9a3d 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(136, 184, 80, 0.4);
-        }
-
-        .project-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(136, 184, 80, 0.6);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-            animation: none;
-        }
-
-        .services {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #5a8fb5 0%, #85c4e8 100%);
-            position: relative;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.05);
-            pointer-events: none;
-        }
-
-        .services h2 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 3rem;
+            margin-bottom: 4rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
         }
 
-        .services-grid {
+        .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.95);
+        .app-card {
+            background: white;
+            border-radius: 20px;
             padding: 2rem;
-            border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: block;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: bounce 2s infinite;
+        .app-card img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .service-card:hover .service-icon {
-            animation: rotate 0.6s ease;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .app-card h2 {
+            font-size: 1.8rem;
             color: #333;
+            margin-bottom: 0.5rem;
         }
 
-        .service-card p {
-            color: #555;
-            line-height: 1.6;
+        .app-card p {
+            color: #666;
+            font-size: 1.1rem;
         }
 
         .footer {
-            background: #2d3748;
-            color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
+            color: white;
         }
 
-        .footer a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #764ba2;
+        .footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
             }
 
-            .subtitle {
-                font-size: 1.3rem;
+            .container {
+                padding: 2rem 1rem;
             }
 
-            .tagline {
-                font-size: 1rem;
+            .apps-grid {
+                gap: 1.5rem;
             }
 
-            .hero-content {
-                padding: 2rem;
-            }
-
-            .logo {
-                width: 120px;
-                height: 120px;
+            .app-card h2 {
+                font-size: 1.5rem;
             }
 
             .nav-links {
@@ -465,24 +199,20 @@
             .menu-toggle {
                 display: flex;
             }
-
-            nav {
-                padding: 0;
-            }
         }
     </style>
 </head>
 <body>
-    <header id="header">
+    <header>
         <nav>
             <a href="#" class="nav-logo">
                 <img src="icon.png" alt="Logo">
-                <span class="nav-title">האפליקציות כלים למשפחה</span>
+                <span class="nav-title">כלים למשפחה</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="home">בית</a></li>
                 <li><a href="launcher.html">האפליקציות שלנו</a></li>
-                <li><a href="mailto:email@toolsforthefamily.com" target="_blank">צור קשר</a></li>
+                <li><a href="mailto:email@toolsforthefamily.com">צור קשר</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -491,63 +221,37 @@
             </div>
         </nav>
     </header>
-    <section class="services" id="services">
-        <h2>מעבר בין אפליקציות</h2>
-        <div class="services-grid">
-            <a href="https://toolsforthefamily.base44.app/">
-            <div class="service-card">
-                <img src="חנות הנקודות.png"alt="חנות הנקודות המשפחתית" style="width:300px; height:auto">
-                <h3>חנות הנקודות המשפחתית</h3>
-				<p>בבניה</p>
-            </div>
-           </a>
-			<a href="https://toolsforthefamily.base44.app/ShoppingList">
-            <div class="service-card">
-                <img src="קניות למשפחה.png"alt="חנות הנקודות המשפחתית" style="width:300px; height:auto">
-                <h3>קניות למשפחה</h3>
+
+    <div class="container">
+        <h1>כלים למשפחה - האפליקציות שלנו</h1>
+        
+        <div class="apps-grid">
+            <a href="https://toolsforthefamily.base44.app/" class="app-card">
+                <img src="חנות הנקודות.png" alt="חנות הנקודות המשפחתית">
+                <h2>חנות הנקודות המשפחתית</h2>
                 <p>בבניה</p>
-            </div>
-			</a>	
-			<a href="https://toolsforthefamily.base44.app/FamilyManagement">
-            <div class="service-card">
-                <img src="ניהול והגדרות.png"alt="חנות הנקודות המשפחתית" style="width:300px; height:auto">
-                <h3>ניהול והגדרות</h3>
+            </a>
+
+            <a href="https://toolsforthefamily.base44.app/ShoppingList" class="app-card">
+                <img src="קניות למשפחה.png" alt="קניות למשפחה">
+                <h2>קניות למשפחה</h2>
                 <p>בבניה</p>
-            </div>
-		    </a>
+            </a>
+
+            <a href="https://toolsforthefamily.base44.app/FamilyManagement" class="app-card">
+                <img src="ניהול והגדרות.png" alt="ניהול והגדרות">
+                <h2>ניהול והגדרות</h2>
+                <p>בבניה</p>
+            </a>
         </div>
-    </section>
+    </div>
 
     <footer class="footer">
         <p>נבנה על ידי מיכאל יצחק לב</p>
-		<p>© 2025 Tools For The Family - כל הזכויות שמורות</p>
+        <p>© 2025 Tools For The Family - כל הזכויות שמורות</p>
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         
@@ -555,33 +259,10 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
-        });
-
-        // Service cards animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
         });
     </script>
 </body>
